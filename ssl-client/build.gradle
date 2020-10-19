@@ -13,6 +13,10 @@ repositories {
     mavenCentral()
 }
 
+bootRun {
+    systemProperty "javax.net.debug", "all"
+}
+
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.12'
