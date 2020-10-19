@@ -61,7 +61,24 @@ can be disabled in the [ssl-client/build.gradle](ssl-client/build.gradle) file u
 
 ## Manually running the commands
 
-Generate the server keystore.jks. Self signed ofcourse
+### Configuring the SSL-Server
+First up we will configure the SSL-Server to run in SSL mode. There are just a handful of settings needed and a keystore
+to configure to enable SSL on our server.
+
+Inside the [ssl-server/src/main/resources/application.properties](ssl-server/src/main/resources/application.properties)
+file there are parameters we will configure for the server to find its key.
+1. server.port - the port to serve the application from.
+1. server.ssl.key-store-type - the type of keystore. Either JKS or PKCS12.
+1. server.ssl.key-store - the location of the keystore inside the jar.
+1. server.ssl.key-store-password - the password for the keystore
+1. server.ssl.key-alias - the alias under which our key lives
+
+##### At this point we need to take a super quick aside and clean out the existing keystore, cert, and client truststore.
+1. Navigate to [/ssl-server/src/main/resources](/ssl-server/src/main/resources) and delete `customKeystore.jks` and `customServer.cer`
+2. Navigate back to the root directory `SSLRestTemplateExample`
+1. Navigate to [/ssl-client/src/main/resources](/ssl-client/src/main/resources) and delete `customTruststore.jks` and `customerServer.cer`
+
+##### Now that we have these settings configured lets jump in and actually generate the keystore.
 
 `keytool -genkeypair -alias localServer -keyalg RSA -keysize 2048 -keystore customKeystore.jks -validity 3650 -storepass notASecurePassword -ext SAN=dns:localhost`
 
