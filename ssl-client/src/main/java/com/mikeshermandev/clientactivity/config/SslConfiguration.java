@@ -44,22 +44,4 @@ public class SslConfiguration {
                 new HttpComponentsClientHttpRequestFactory(httpClient);
         return new RestTemplate(factory);
     }
-
-//    @Bean
-//    public RestTemplate sslRestTemplate() throws IOException, KeyStoreException, CertificateException, NoSuchAlgorithmException, UnrecoverableKeyException, KeyManagementException {
-//        KeyStore clientStore = KeyStore.getInstance("JKS");
-//        clientStore.load(keyStore.getInputStream(), "password".toCharArray());
-//
-//        SSLContextBuilder sslContextBuilder = new SSLContextBuilder();
-//        sslContextBuilder.setProtocol("TLS");
-//        sslContextBuilder.loadKeyMaterial(clientStore, "password".toCharArray());
-//        sslContextBuilder.loadTrustMaterial(new TrustAllStrategy());
-//
-//        SSLConnectionSocketFactory sslConnectionSocketFactory = new SSLConnectionSocketFactory(sslContextBuilder.build());
-//        CloseableHttpClient httpClient = HttpClients.custom()
-//                .setSSLSocketFactory(sslConnectionSocketFactory)
-//                .build();
-//        HttpComponentsClientHttpRequestFactory requestFactory = new HttpComponentsClientHttpRequestFactory(httpClient);
-//        return new RestTemplate(requestFactory);
-//    }
 }
