@@ -1,4 +1,4 @@
-package com.mikeshermandev.clientactivity.contorller;
+package com.mikeshermandev.clientactivity.controller;
 
 import com.mikeshermandev.clientactivity.dto.BoredResponseDTO;
 import org.slf4j.Logger;
