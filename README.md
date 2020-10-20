@@ -1,4 +1,4 @@
-#Custom certificate server and TLS RestTemplate calls with spring boot v2
+# Custom certificate server and TLS RestTemplate calls with spring boot v2
 
 ## Description
 After running in to an issue when trying to call aN HTTPS endpoint secured via a custom TLS certificate signer I found that
